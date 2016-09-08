@@ -1,6 +1,7 @@
 <h1>投稿一覧</h1>
-
+<%= link_to '新規投稿', new_post_path %>
 <% @posts.each do |post| %>
-  <p>タイトル</p>
-  <span><%= link_to post.title, post_path(post.id) %></span>
+  <p>
+    タイトル：<%= link_to post.title, post_path(post.id) %>
+  </p>
 <% end %>
