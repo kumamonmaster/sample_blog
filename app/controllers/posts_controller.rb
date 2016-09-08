@@ -5,11 +5,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
-    @post.title = params[:title]
-    @post.body = params[:body]
+    @post = Post.new(post_params)
     @post.save
-    redirect_to post_path(@post.id)
+    redirect_to @post
   end
 
   def index
@@ -26,7 +24,7 @@ class PostsController < ApplicationController
     @post.title = params[:title]
     @post.body = params[:body]
     @post.save
-    redirect_to post_path(@post.id)
+    redirect_to @post
   end
 
   def destroy
@@ -37,5 +35,9 @@ class PostsController < ApplicationController
   private
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :body)
     end
 end
