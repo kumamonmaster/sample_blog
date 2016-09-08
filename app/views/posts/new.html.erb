@@ -1,9 +1,9 @@
 <h1>新規投稿</h1>
 
-<%= form_tag do%>
+<%= form_tag posts_path do%>
   タイトル
-  <input type="text">
+  <input type="text" name="title">
   本文
-  <textarea></textarea>
+  <textarea name="body"></textarea>
   <input type="submit" value="投稿する">
 <% end %>
