@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def new
+    @post = Post.new
   end
 
   def create
@@ -21,9 +22,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.title = params[:title]
-    @post.body = params[:body]
-    @post.save
+    @post.update(post_params)
     redirect_to @post
   end
 

@@ -1,9 +1,9 @@
 <h1>新規投稿</h1>
 
-<%= form_tag posts_path do%>
+<%= form_for (@post) do |f| %>
   タイトル
-  <input type="text" name="post[title]">
+  <%= f.text_field :title %>
   本文
-  <textarea name="post[body]"></textarea>
-  <input type="submit" value="投稿する">
+  <%= f.text_area :body %>
+  <%= f.submit "保存" %>
 <% end %>
