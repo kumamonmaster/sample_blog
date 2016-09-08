@@ -1,0 +1,14 @@
+<h1>新規投稿</h1>
+
+<%= form_for (@post) do |f| %>
+  <p>
+    タイトル
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    本文
+    <%= f.text_area :body %>
+  </p>
+  <%= f.submit "保存" %>
+  <%= link_to 'キャンセル', :back %>
+<% end %>
