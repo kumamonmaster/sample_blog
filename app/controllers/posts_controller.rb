@@ -8,4 +8,8 @@ class PostsController < ApplicationController
     @post.body = params[:body]
     @post.save
   end
+
+  def index
+    @posts = Post.all
+  end
 end
